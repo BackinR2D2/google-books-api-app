@@ -1,0 +1,27 @@
+
+.bookForm {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.searchBook {
+    text-align: center;
+    padding: 4%;
+    border: 1px solid black;
+    border-radius: 24px;
+    margin: 2rem;
+}
+
+.saveBook {
+    margin: 2vh;
+}
+
+.removeBook {
+    margin: 2vh;
+}
+
+.disclaimer {
+    text-align: center;
+    font-size: 1.4rem;
+    color: #F4F9F1;
+}
