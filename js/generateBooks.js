@@ -63,9 +63,12 @@ function generateBooksInfo () {
         const data = (bookInfo.items).filter(el => el.volumeInfo.imageLinks && el.volumeInfo.pageCount && el.volumeInfo.authors);
         const randomNum = generateRandNum(data.length - 1);
         let info = data[randomNum];
+        const imgUrl = (info.volumeInfo.imageLinks.thumbnail).split('http');
+        imgUrl[0] = 'https';
+        const modifiedImgUrl = imgUrl.join('');
         const template = `
             <div class="imgContainer">
-                <img src="${info.volumeInfo.imageLinks?.thumbnail}" class="card-img-top" alt="coperta_poza">
+                <img src="${modifiedImgUrl}" class="card-img-top" alt="coperta_poza">
             </div>
             <div class="cardData">
                 <h4 class="card-title">${info.volumeInfo.title}</h4>

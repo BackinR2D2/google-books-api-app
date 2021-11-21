@@ -35,9 +35,12 @@ async function getBooks () {
     for(let i = 0; i < localStorage.length; i++) {
         const id = localStorage.getItem(localStorage.key(i));
         const info = await getBookInfo(id);
+        const imgUrl = (info.volumeInfo.imageLinks.thumbnail).split('http');
+        imgUrl[0] = 'https';
+        const modifiedImgUrl = imgUrl.join('');
         const template = `
             <div class="imgContainer">
-                <img src="${info.volumeInfo.imageLinks?.thumbnail}" class="card-img-top" alt="coperta_poza">
+                <img src="${modifiedImgUrl}" class="card-img-top" alt="coperta_poza">
             </div>
             <div class="cardData">
                 <h4 class="card-title">${info.volumeInfo.title}</h4>

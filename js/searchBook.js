@@ -32,9 +32,12 @@ form.addEventListener('submit', async (e) => {
     }
     const booksInfo = infos.items.filter(el => el.volumeInfo.imageLinks && el.volumeInfo.pageCount && el.volumeInfo.authors);
     booksInfo.forEach(info => {
+        const imgUrl = (info.volumeInfo.imageLinks.thumbnail).split('http');
+        imgUrl[0] = 'https';
+        const modifiedImgUrl = imgUrl.join('');
         const template = `
             <div class="imgContainer">
-                <img src="${info.volumeInfo.imageLinks?.thumbnail}" class="card-img-top" alt="coperta_poza">
+                <img src="${modifiedImgUrl}" class="card-img-top" alt="coperta_poza">
             </div>
             <div class="cardData">
                 <h4 class="card-title">${info.volumeInfo.title}</h4>
